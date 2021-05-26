@@ -1,5 +1,4 @@
 #include "argparser.h"
-#include "errors.h"
 #include <QCoreApplication>
 
 QScopedPointer<QCommandLineParser> parse_args(const QCoreApplication& app) {
@@ -26,14 +25,17 @@ QScopedPointer<QCommandLineParser> parse_args(const QCoreApplication& app) {
     parser->addOption({
         {"length", "l"},
         "Generates password of specified length.",
-        "LENGTH",
-        "8"
+        "LENGTH"
     });
+
+    parser->addOption({"alphabet",
+                       "Password content."
+                      });
 
     parser->process(app);
 
     if (!parser->parse(QCoreApplication::arguments()))
-        error(parser->errorText().toLatin1().toStdString());
+        throw std::runtime_error(parser->errorText().toLatin1().toStdString());
 
     return QScopedPointer(parser);
 }

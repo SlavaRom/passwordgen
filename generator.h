@@ -16,8 +16,8 @@ public:
         delete this->strategy_;
     }
 
-    std::string generate(const std::string &data, const int& len)
+    std::string generate(const std::string& alphabet,const int& len)
     {
-        return strategy_->generate(data, len);
+        return strategy_->generate(alphabet, len);
     }
 };

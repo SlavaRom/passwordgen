@@ -1,6 +1,6 @@
 #include "passwordgenerator.h"
-#include "errors.h"
 #include <chrono>
+#include <stdexcept>
 
 PasswordGenerator::PasswordGenerator(const std::string& alphabet)
     : _alphabet(alphabet),
@@ -12,7 +12,7 @@ PasswordGenerator::PasswordGenerator(const std::string& alphabet)
 
 std::string PasswordGenerator::generate(unsigned length) {
     if (length <= 0 || length >= MAX_LENGTH)
-        error("Password length must be positive number and less than " + std::to_string(MAX_LENGTH) + ".");
+        throw std::runtime_error("Password length must be positive number and less than " + std::to_string(MAX_LENGTH) + ".");
 
     std::string password;
     for (unsigned i = 0; i < length; i++)

@@ -5,7 +5,7 @@
 
 #include "generator.h"
 
-class Strong : public Strategy {
+class Custom : public Strategy {
 public:
     std::string generate(const std::string& alphabet, const int& len) override;
 };

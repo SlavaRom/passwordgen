@@ -7,5 +7,5 @@
 
 class Medium : public Strategy {
 public:
-    std::string generate(const std::string &data, const int& len) override;
+    std::string generate(const std::string& alphabet, const int& len) override;
 };
