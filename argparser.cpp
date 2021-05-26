@@ -27,7 +27,7 @@ QScopedPointer<QCommandLineParser> parse_args(const QCoreApplication& app) {
         {"length", "l"},
         "Generates password of specified length.",
         "LENGTH",
-        "10"
+        "8"
     });
 
     parser->process(app);
